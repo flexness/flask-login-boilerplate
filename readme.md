@@ -1,5 +1,5 @@
 # readme
-${{\color{Goldenrod}\small{ \texttt{ *wip* \}}}}\$ 
+${{\color{Goldenrod}\small{ \texttt{ wip \}}}}\$ 
 
 minimal flask boilerplate for security/user/login with factory pattern, browser-sync, flowbite/tailwind (dark-/light-theme).
 
