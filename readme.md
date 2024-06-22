@@ -1,6 +1,4 @@
-# readme ${{\color{Goldenrod}\small{ \texttt{ WIP \}}}}\$
- 
-
+# flask boilerplate with user-system ${{\color{Goldenrod}\small{ \texttt{ WIP \}}}}\$
 minimal flask boilerplate for security/user/login with factory pattern, browser-sync, flowbite/tailwind (dark-/light-theme).
 
 ## install 
@@ -25,6 +23,21 @@ minimal flask boilerplate for security/user/login with factory pattern, browser-
 
 ## notes/hints
 - factory pattern: `run.py` => `factory.py` => `routes`, `extensions`, `models`, `security`
+```bash
+└───Flask Boilerplate
+│ run.py
+│
+└───application
+	│ factory.py
+	│
+├───static
+	│ main.css
+	│
+├───templates
+	│ register.html
+	│
+```
+
 - flask-security-too =>
 - npm 
 	- flowbite, theme-mode, tailwind css

@@ -21,6 +21,9 @@
 {% from "macros.html" import button_submit %}
 {{ button_submit('submit') }}
 
+{% if current_user.is_authenticated %}
+{{ current_user.email }}
+{% endif %}
 </div>
 
 

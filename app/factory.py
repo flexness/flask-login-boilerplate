@@ -12,13 +12,17 @@ from .extensions import db, security
 from .security import user_datastore
 
 
-def create_app(config_class=Config):
+from config import config
+
+
+def create_app():
 
     # create the Flask application instance
     app = Flask(__name__)
 
     # get values from config.py
-    app.config.from_object(config_class)
+    env = os.getenv('FLASK_ENV', 'default')
+    app.config.from_object(config[env])
 
     app.secret_key = app.config['SECRET_KEY']
 
@@ -29,7 +33,15 @@ def create_app(config_class=Config):
     # Setup Flask-Security
     # user_datastore = SQLAlchemyUserDatastore(db, User, Role)
     security = Security(app, user_datastore)
-    # Make `current_user` available in all templates
+
+    # in dev/debug print config vars
+    show_config = True
+    with app.app_context():
+        if app.config['DEBUG'] & show_config:  
+            Config.print_config(app)
+
+
+    # Make `current_user` available in all templates/jinja
     @app.context_processor
     def inject_user():
         return dict(current_user=current_user)
@@ -44,13 +56,13 @@ def create_app(config_class=Config):
 
     # Create a user to test with if not existing
     # push context manually to app
-    # with app.app_context():
+    with app.app_context():
         # create all tables if not existing
-        # db.create_all()
+        db.create_all()
         # create default test user if not existing
-        # if not user_datastore.find_user(email="test@test.com"):
-        #     user_datastore.create_user(email="test@test.com", password=hash_password("testtest"))
-        # db.session.commit() 
+        if not user_datastore.find_user(email="test@test.com"):
+            user_datastore.create_user(email="test@test.com", password=hash_password("testtest"))
+        db.session.commit() 
 
 
     return app
