@@ -1,10 +1,10 @@
 # readme
 *wip*
 
-flask boilerplate using mysql. user register and login with flask-security-too.
+minimal flask boilerplate for security/user/login with factory pattern, browser-sync, flowbite/tailwind (dark-/light-theme).
 
 ## install 
-- req.:
+- req.: mysql db
 - `npm i`
 - `pip install -r requirements.txt`
 - adjust `config.py` if needed
@@ -17,8 +17,9 @@ flask boilerplate using mysql. user register and login with flask-security-too.
 - `python run.py` to run app 
 
 ## content
-- `/login`
-- `/register`
+- `/index`, `/` as default home route 
+- `/login` provided by flask-security-too
+- `/register` provided by flask-security-too
 
 ## notes/hints
 - factory pattern 
