@@ -1,0 +1,37 @@
+
+/* temp */
+section {
+}
+
+nav {
+    z-index: 10;
+}
+body {
+    font-family: 'Calibri', sans-serif;
+}
+/* to break long b64 strings */
+.val {
+    word-break: break-all;
+}
+
+footer {
+}
+
+.my-component {
+    @apply bg-blue-500 text-white;
+}
+
+#validation_metadata .metadata dl dt {
+    font-weight: bold;
+    color: black;
+}
+#validation_metadata .metadata dl dd {
+    color: black;
+}
+div.BT-24.boxdaten.wert {
+    line-break: anywhere;
+}
+
+.menue {
+    display: none;
+}

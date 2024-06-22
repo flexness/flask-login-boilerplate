@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block custom_css %}
+  {% if request.path == '/index' %}
+      
+  {% endif %}
+{% endblock %}
+
+{% block content %} 
+
+
+
+
+<div id="home" class="flex flex-col gap-4 mb-8 w-5/6 2xl:w-1/2">
+{% from "macros.html" import h1 %}
+  {{ h1('h1 headline') }}
+
+ 	<p>para</p>
+{% from "macros.html" import button_submit %}
+{{ button_submit('submit') }}
+
+</div>
+
+
+<script>
+    
+</script>
+
+{% endblock %}
