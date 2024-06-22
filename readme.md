@@ -20,10 +20,12 @@ minimal flask boilerplate for security/user/login with factory pattern, browser-
 - `/index`, `/` as default home route 
 - `/login` provided by flask-security-too
 - `/register` provided by flask-security-too
+- custom `/security` templates for `login_user.html` and `register_user.html`
+- default example models/db-structure for `user`, `role` and `roles_users`
 
 ## notes/hints
-- factory pattern 
-- flask-security-too
+- factory pattern: `run.py` => `factory.py` => `routes`, `extensions`, `models`, `security`
+- flask-security-too =>
 - npm 
 	- flowbite, theme-mode, tailwind css
 	- browser-sync, bs-config.js
