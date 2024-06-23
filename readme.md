@@ -28,7 +28,7 @@ minimal flask boilerplate for security/user/login with factory pattern, browser-
 
 | id  | email      | username | password   | active | confirmed_at | current_login_at     | last_login_at        | current_login_ip | last_login_ip | login_count | fs_uniquifier_placeholder |
 |-----|------------|----------|----------- | ------ |--------------|------------------    |--------------------  |------------------|---------------|-------------|-------------------------- |
-| 1   | 1@test.com |          | <hsahedpw> | 1      | 			   | 2024-06-22 21:47:58  | 2024-06-22 21:47:58  | 127.0.0.1 		|	 			| 1           | fs_uniquifier_placeholder |
+| <id>   | <mail> |          | <hsahedpw> | 1      | 			   | 2024-06-22 21:47:58  | 2024-06-22 21:47:58  | 127.0.0.1 		|	 			| 1           | fs_uniquifier_placeholder |
 
 
 
@@ -56,4 +56,4 @@ minimal flask boilerplate for security/user/login with factory pattern, browser-
 - adjust/rename .env.example
 
 ## run/prod
-- ...
+- ...git 
