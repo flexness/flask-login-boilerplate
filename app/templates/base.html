@@ -75,6 +75,13 @@
                     </li>
                     {% endif %}
                     {% if current_user.is_authenticated %}
+                    {% if 'admin' in current_user.roles %}
+                    <li class="{% if request.path == url_for('routes.users') %}active{% endif %}">
+                        <a href="{{ url_for('routes.users') }}"
+                            class="block py-2 pl-3 pr-4 rounded hover:bg-gray-200 xl:hover:bg-transparent xl:hover:text-gray-500 xl:p-0 xl:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent dark:border-gray-700"
+                            aria-current="page">Users</a>
+                    </li>
+                    {% endif %}
                     <li class="{% if request.path == url_for('security.logout') %}active{% endif %}">
                         <a href="{{ url_for('security.logout') }}"
                             class="block py-2 pl-3 pr-4 rounded hover:bg-gray-200 xl:hover:bg-transparent xl:hover:text-gray-500 xl:p-0 xl:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent dark:border-gray-700"
