@@ -1,12 +1,21 @@
 {
   "devDependencies": {
-    "tailwindcss": "^3.4.1",
-    "browser-sync": "^2.27.10"
+    "autoprefixer": "^10.4.19",
+    "browser-sync": "^2.27.10",
+    "postcss": "^8.4.38",
+    "postcss-import": "^16.1.0",
+    "postcss-nested": "^6.0.1",
+    "postcss-scss": "^4.0.9",
+    "sass": "^1.77.6",
+    "tailwindcss": "^3.4.1"
   },
   "dependencies": {
     "flowbite": "^2.3.0"
   },
   "scripts": {
-    "servebs": "browser-sync start --config bs-config.js"
+    "servebs": "browser-sync start --config bs-config.js",
+    "watch:sass": "npx sass ./app/static/src/main.scss ./app/static/src/custom.css --watch --no-source-map",
+    "watch:tailwind": "npx tailwindcss -i ./app/static/src/input.scss -o ./app/static/dist/css/output.css --watch"
   }
 }
+

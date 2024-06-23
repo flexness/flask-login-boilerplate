@@ -10,7 +10,14 @@
   {{ h1('users') }}
 
  	<p>para</p>
+    <h2>current user:</h2>
+     <ul>
+        {% for attribute, value in current_user.__dict__.items() if not attribute.startswith('_') %}
+            <li><strong>{{ attribute }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
 
+    <h2>users list:</h2>
      <table>
         <thead>
             <tr>

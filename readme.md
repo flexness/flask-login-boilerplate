@@ -1,6 +1,9 @@
 # flask boilerplate with user-system ${{\color{Goldenrod}\small{ \texttt{ WIP \}}}}\$
 minimal flask boilerplate for security/user/login with factory pattern, browser-sync, flowbite/tailwind (dark-/light-theme).
 
+## todo
+- add htmx
+
 ## install 
 - `python -m venv venv` & `venv\Scripts\activate`
 - `npm i`
@@ -20,36 +23,66 @@ minimal flask boilerplate for security/user/login with factory pattern, browser-
 - `/index`, `/` as default home route 
 - `/login` provided by flask-security-too
 - `/register` provided by flask-security-too
+- `/users` route to show users (login + role=admin required)
 - custom `/security` templates for `login_user.html` and `register_user.html`
 - default example models/db-structure for `user`, `role` and `roles_users`
 
 ## sqlite example data  
 
 
-| id  | email      | username | password   | active | confirmed_at | current_login_at     | last_login_at        | current_login_ip | last_login_ip | login_count | fs_uniquifier_placeholder |
-|-----|------------|----------|----------- | ------ |--------------|------------------    |--------------------  |------------------|---------------|-------------|-------------------------- |
-| <id>   | <mail> |          | <hsahedpw> | 1      | 			   | 2024-06-22 21:47:58  | 2024-06-22 21:47:58  | 127.0.0.1 		|	 			| 1           | fs_uniquifier_placeholder |
+| id  | email      | username | password   | active | confirmed_at | current_login_at  | last_login_at | current_login_ip | last_login_ip | login_count | fs_uniquifier_placeholder |
+|-----|------------|----------|----------- | ------ |--------------|------------------ |---------------|------------------|---------------|-------------|-------------------------- |
+|     |     	   |          | 		   |        | 			   |   				   | 			   | 	   	          | 			  | 	        | 				 		    |
 
 
 
 ## notes/hints
 - factory pattern: `run.py` => `factory.py` => `routes`, `extensions`, `models`, `security`
+- app structure:
+
 ```jsx
-└───Flask Boilerplate
+└───root
 │ run.py
-│
-└───application
+│ setup.py
+│ config.py
+│ .env
+│ package.json
+│ requirements.txt
+│ tailwind.config.js
+│ bs-config.py
+|
+├─── instance
+	└─── sqlite.db
+	|
+├─── app
 	│ factory.py
-	│
-├───static
-	│ main.css
-	│
-├───templates
-	│ register.html
-	│
+	│ routes.py
+	│ extensions.py
+	│ models.py
+	│ security.py
+	|
+	├───templates
+		│ base.html
+		│ index.html
+		│ users.html
+		│ macros.html
+		│
+		└─── security
+			│ login_user.html
+			│ register_user.html
+			│ macros.html
+			|
+	└─── static
+		│ theme.js
+		│ logo.png
+		│
+		└─── src
+			| input.scss
+			| custom.scss
+			|
 ```
 
-- flask-security-too =>
+- lask-security-too =>
 - npm 
 	- flowbite, theme-mode, tailwind css
 	- browser-sync, bs-config.js
