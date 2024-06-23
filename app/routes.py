@@ -1,24 +1,26 @@
-import base64
 
-from flask import Blueprint, render_template, request, redirect, url_for, flash, current_app, jsonify
+from flask import Blueprint, render_template, jsonify
+from flask_security import roles_required, login_required
+from .models import User
 
-from flask_security import Security, SQLAlchemyUserDatastore, UserMixin, RoleMixin, auth_required, hash_password
 
-from .models import db, User
-from .security import user_datastore
-
-from flask_security.utils import login_user, logout_user
-
-# this 
+# set blueprint for routes 
 routes_blueprint = Blueprint('routes', __name__)
 
-# user_datastore = SQLAlchemyUserDatastore(db, User, Role)
-
-###############################################
 # routes
-###############################################
 
 @routes_blueprint.route("/")
 @routes_blueprint.route("/index", methods=['GET', 'POST'])
 def index():
  	return render_template('index.html')
+
+
+
+@routes_blueprint.route('/users', methods=['GET'])
+@roles_required('admin')
+@login_required
+def users():
+    users = User.query.all()
+    #users_list = [{'id': user.id, 'email': user.email, 'active': user.active} for user in users]
+    #return jsonify(users_list)
+    return render_template('users.html', users=users)
