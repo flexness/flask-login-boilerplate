@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Users{% endblock %}
+
+
+{% block content %} 
+
+<div id="users" class="flex flex-col gap-4 mb-8 w-5/6 2xl:w-1/2">
+{% from "macros.html" import h1 %}
+  {{ h1('users') }}
+
+ 	<p>para</p>
+
+     <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Active</th>
+                <th>Roles</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.active }}</td>
+                    <td>{% for role in user.roles %}{{ role.name }}{% endfor %}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+<script>
+    
+</script>
+
+{% endblock %}
