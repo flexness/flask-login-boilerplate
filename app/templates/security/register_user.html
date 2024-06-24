@@ -15,7 +15,7 @@
   </p>
 
   <div class="container">
-    {{ h1('Register form') }}
+    {{ h2('Register form') }}
     <form action="{{ url_for_security('register') }}" method="POST" name="register_user_form">
 
         {{ register_user_form.hidden_tag() }}
@@ -42,7 +42,7 @@
         {% endif %}
 
     </form>
-    
+
     <p>
         <a href="{{ url_for_security('login') }}">Already have an account?</a>
     </p>
