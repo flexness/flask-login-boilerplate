@@ -1,17 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}validator{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% from "security/_macros.html" import render_field_with_errors, render_field, render_form_errors, render_field_errors %}
 
-{% block custom_css %}
-  {% if request.path == '/validator' %}
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='src/validator.css') }}">
-  {% endif %}
-{% endblock %}
-
 {% block content %} 
-{% from "macros.html" import button_submit, dropzone, h1, h2, status, ubl, cii %}
+
+{% from "macros.html" import h1, h2 %}
 
 <div id="home" class="flex flex-col gap-4 mb-16 w-5/6 2xl:w-1/2">
   {{ h1('Login') }}
